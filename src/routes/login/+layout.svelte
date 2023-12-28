@@ -4,10 +4,7 @@
 
 <style>
   .layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    margin: 3rem auto;
+    width: min(100%, 26ch);
   }
 </style>
