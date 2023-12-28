@@ -8,5 +8,7 @@ export const handle = SvelteKitAuth({
     Google({ clientId: GOOGLE_CLIENT_ID, clientSecret: GOOGLE_CLIENT_SECRET }),
     GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET })
   ],
-  pages: {}
+  pages: {
+    signIn: "/login"
+  }
 })
