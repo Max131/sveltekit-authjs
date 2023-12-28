@@ -27,13 +27,17 @@
     </li>
     <li>
       {#if $page.data.session}
-        <a href="#!" data-sveltekit-preload-data="off" on:click={handleSignOut}
-          ><small>Sign out</small></a
-        >
+        <a href="#!" data-sveltekit-preload-data="off" on:click={handleSignOut}>
+          <strong>
+            <small>Sign out</small>
+          </strong>
+        </a>
       {:else}
-        <a href="/auth/signin" data-sveltekit-preload-data="off"
-          ><small>Sign in</small></a
-        >
+        <a href="/auth/signin" data-sveltekit-preload-data="off">
+          <strong>
+            <small>Sign in</small>
+          </strong>
+        </a>
       {/if}
     </li>
   </ul>
