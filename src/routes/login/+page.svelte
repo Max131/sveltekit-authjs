@@ -1,11 +1,10 @@
 <script>
   import { signIn, signOut } from "@auth/sveltekit/client"
   import { page } from "$app/stores"
-  // import logo from "$lib/assets/logo.png"
-  // import Google from "$lib/components/icon/Google.svelte"
-
+  import Helmet from "$lib/Helmet.svelte"
+  import Google from "$lib/assets/Google.svelte"
+  import Github from "$lib/assets/Github.svelte"
   // let email = ""
-
   // const handleEmailSignIn = () => {
   //   signIn("email", { email, callbackUrl: "/protected" })
   // }
@@ -23,6 +22,7 @@
   }
 </script>
 
+<Helmet title="Login" />
 {#if !$page.data.session}
   <!-- <img src={logo} alt="auth.js logo" class="logo" /> -->
   <h1 class="welcome">Welcome</h1>
@@ -40,13 +40,13 @@
 </div> -->
 
   <button on:click={handleGoogleSignIn}>
-    <!-- <Google /> -->
-    Continue with Google
+    <Google />
+    <span> Continue with Google </span>
   </button>
 
   <button on:click={handleGithubSignIn}>
-    <!-- <Google /> -->
-    Continue with Github
+    <Github />
+    <span> Continue with Github </span>
   </button>
 {/if}
 
