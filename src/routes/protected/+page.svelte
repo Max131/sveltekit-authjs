@@ -1,7 +1,9 @@
 <script lang="ts">
+  import Helmet from "$lib/Helmet.svelte"
   import { page } from "$app/stores"
 </script>
 
+<Helmet title="Protected Page" />
 {#if $page.data.session}
   <h1>Protected page</h1>
   <p>

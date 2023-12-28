@@ -1,43 +1,44 @@
 <script lang="ts">
   import "../app.scss"
+  import Helmet from "$lib/Helmet.svelte"
+  import { signOut } from "@auth/sveltekit/client"
   import { page } from "$app/stores"
+
+  const handleSignOut = () => {
+    signOut({ callbackUrl: "/" })
+  }
 </script>
 
-<div>
-  <nav class="container">
-    <ul>
-      <li><strong>SvelteKit/AuthJS</strong></li>
-    </ul>
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/protected">Protected</a>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        {#if $page.data.session}
-          {#if $page.data.session.user?.image}
-            <img src={$page.data.session.user.image} alt="" />
-          {/if}
-          <span>
-            <small>Signed in as</small><br />
-            <strong
-              >{$page.data.session.user?.email ??
-                $page.data.session.user?.name}</strong
-            >
-          </span>
-          <a href="/auth/signout" data-sveltekit-preload-data="off">Sign out</a>
-        {:else}
-          <span>You are not signed in</span>
-          <a href="/auth/signin" data-sveltekit-preload-data="off">Sign in</a>
-        {/if}
-      </li>
-    </ul>
-  </nav>
-  <main class="container">
-    <slot />
-  </main>
-</div>
+<Helmet />
+<nav class="container">
+  <ul>
+    <li><strong>SvelteKit/AuthJS</strong></li>
+  </ul>
+  <ul>
+    <li>
+      <a href="/">
+        <small>Home</small>
+      </a>
+    </li>
+    <li>
+      <a href="/protected">
+        <small> Protected </small>
+      </a>
+    </li>
+    <li>
+      {#if $page.data.session}
+        <a href="#!" data-sveltekit-preload-data="off" on:click={handleSignOut}
+          ><small>Sign out</small></a
+        >
+      {:else}
+        <a href="/auth/signin" data-sveltekit-preload-data="off"
+          ><small>Sign in</small></a
+        >
+      {/if}
+    </li>
+  </ul>
+</nav>
+
+<main class="container">
+  <slot />
+</main>

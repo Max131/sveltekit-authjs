@@ -1,3 +1,8 @@
+<script>
+  import Helmet from "$lib/Helmet.svelte"
+</script>
+
+<Helmet title="SvelteKit/AuthJS" />
 <h1>SvelteKit Auth Example</h1>
 <p>
   This is an example site to demonstrate how to use <a
