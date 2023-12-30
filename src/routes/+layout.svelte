@@ -33,7 +33,7 @@
           </strong>
         </a>
       {:else}
-        <a href="/auth/signin" data-sveltekit-preload-data="off">
+        <a href="/login" data-sveltekit-preload-data="off">
           <strong>
             <small>Sign in</small>
           </strong>
