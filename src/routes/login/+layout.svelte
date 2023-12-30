@@ -5,6 +5,6 @@
 <style>
   .layout {
     margin: 3rem auto;
-    width: min(100%, 26ch);
+    width: min(100%, 34ch);
   }
 </style>
