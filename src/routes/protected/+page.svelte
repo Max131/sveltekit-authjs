@@ -20,9 +20,12 @@
     {$page.data.session.user?.email ?? $page.data.session.user?.name}
   </p>
   <p>Session expiry: {$page.data.session?.expires}</p>
+  <pre>
+    {JSON.stringify($page.data.session, null, 2)}
+  </pre>
 {:else}
   <h1>Access Denied</h1>
   <p>
-    <a href="/auth/signin"> You must be signed in to view this page </a>
+    <a href="/login"> You must be signed in to view this page </a>
   </p>
 {/if}
