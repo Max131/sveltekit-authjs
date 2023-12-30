@@ -23,6 +23,14 @@
   <pre>
     {JSON.stringify($page.data.session, null, 2)}
   </pre>
+
+  {#if $page.data?.files}
+    <pre>
+      {#each $page.data.files as file}
+        {JSON.stringify(file, null, 2) + "\n"}
+      {/each}
+    </pre>
+  {/if}
 {:else}
   <h1>Access Denied</h1>
   <p>
