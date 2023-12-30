@@ -1,15 +1,16 @@
 <script>
   import { page } from "$app/stores"
-  import { signIn, signOut } from "@auth/sveltekit/client"
+  import { signIn } from "@auth/sveltekit/client"
   import Helmet from "$lib/Helmet.svelte"
   import Google from "$lib/assets/Google.svelte"
   import Github from "$lib/assets/Github.svelte"
 
-  const handleSignIn = (event) => {
-    const {
-      target: { dataset },
-    } = event
-    signIn(dataset.provider, { callbackUrl: "/protected" })
+  const handleSignInGoogle = () => {
+    signIn("google", { callbackUrl: "/protected" })
+  }
+
+  const handleSignInGithub = () => {
+    signIn("github", { callbackUrl: "/protected" })
   }
 </script>
 
@@ -18,12 +19,12 @@
   <h1 class="welcome">Welcome</h1>
   <p class="text">Log in to continue to SvelteKit Auth Example</p>
 
-  <button data-provider="google" on:click={handleSignIn}>
+  <button on:click={handleSignInGoogle}>
     <Google />
     <span> Continue with Google </span>
   </button>
 
-  <button data-provider="github" on:click={handleSignIn}>
+  <button on:click={handleSignInGithub}>
     <Github />
     <span> Continue with Github </span>
   </button>
