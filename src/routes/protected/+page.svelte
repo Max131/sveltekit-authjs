@@ -25,11 +25,13 @@
   </pre>
 
   {#if $page.data?.files}
-    <pre>
-      {#each $page.data.files as file}
-        {JSON.stringify(file, null, 2) + "\n"}
-      {/each}
-    </pre>
+    <div class="videos">
+    {#each $page.data.files as file}
+      {#if file.Key.includes("webm")}
+        <video src="{file.url}" controls></video>
+      {/if}
+    {/each}
+    </div>
   {/if}
 {:else}
   <h1>Access Denied</h1>
