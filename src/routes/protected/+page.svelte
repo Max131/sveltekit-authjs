@@ -25,7 +25,7 @@
   </pre>
 
   {#if $page.data?.files}
-    <div class="videos">
+    <div class="video-list">
     {#each $page.data.files as file}
       {#if file.Key.includes("webm")}
         <video src="{file.url}" controls></video>
